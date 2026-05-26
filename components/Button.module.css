@@ -1,0 +1,60 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  font-family: var(--font-sans);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.primary {
+  background: var(--color-orange);
+  color: #fff;
+}
+
+.primary:hover {
+  background: var(--color-orange-hover);
+}
+
+.secondary {
+  background: transparent;
+  color: var(--color-navy);
+  border: 2px solid var(--color-navy);
+}
+
+.secondary:hover {
+  background: var(--color-navy);
+  color: #fff;
+}
+
+.outlineLight {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.outlineLight:hover {
+  background: #fff;
+  color: var(--color-navy);
+}
+
+.coral {
+  background: var(--color-coral);
+  color: #fff;
+}
+
+.coral:hover {
+  background: var(--color-coral-hover);
+}

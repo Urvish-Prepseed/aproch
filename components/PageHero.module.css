@@ -1,0 +1,29 @@
+.hero {
+  padding: 72px 0 64px;
+}
+
+.dark {
+  background: var(--color-navy);
+  color: #fff;
+}
+
+.light {
+  background: var(--color-bg-muted);
+  color: var(--color-text);
+}
+
+.hero h1 {
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  max-width: 600px;
+}
+
+.light p {
+  color: var(--color-text-muted);
+  opacity: 1;
+}

@@ -1,0 +1,258 @@
+.hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.heroImage {
+  object-fit: cover;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(30, 47, 60, 0.85) 0%,
+    rgba(30, 47, 60, 0.5) 100%
+  );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  padding: 120px 24px 80px;
+}
+
+.heroContent h1 {
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.heroContent p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin-bottom: 32px;
+  opacity: 0.95;
+}
+
+.intro {
+  padding: 64px 0;
+  background: #fff;
+}
+
+.introText {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.initiatives {
+  background: var(--color-bg-muted);
+}
+
+.initiativeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.initiativeCard {
+  background: #fff;
+  border-radius: 8px;
+  padding: 28px 24px;
+  border: 1px solid var(--color-border);
+  transition: box-shadow 0.2s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.initiativeCard:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.initiativeIcon {
+  margin-bottom: 16px;
+}
+
+.initiativeIcon img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.initiativeCard h3 {
+  font-size: 1.125rem;
+  margin-bottom: 8px;
+}
+
+.initiativeCard p {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.learnMore {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.impactBand {
+  padding: 80px 0;
+  background: var(--color-navy);
+  color: #fff;
+}
+
+.impactTitle {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  text-align: center;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.impactSubtitle {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 48px;
+  opacity: 0.9;
+  font-size: 1.0625rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  text-align: center;
+}
+
+.statValue {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--color-orange);
+  margin-bottom: 8px;
+}
+
+.statLabel {
+  font-size: 0.9375rem;
+  opacity: 0.9;
+}
+
+.storySection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 480px;
+}
+
+.storyImage {
+  position: relative;
+  min-height: 400px;
+}
+
+.storyImage img {
+  object-fit: cover;
+}
+
+.storyContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 64px 48px;
+  background: var(--color-orange);
+  color: #fff;
+}
+
+.storyContent h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.storyContent p {
+  font-size: 1.0625rem;
+  margin-bottom: 28px;
+  opacity: 0.95;
+  max-width: 480px;
+}
+
+.storyContent a {
+  align-self: flex-start;
+  background: #fff !important;
+  color: var(--color-navy) !important;
+  border-color: #fff !important;
+}
+
+.storyContent a:hover {
+  background: var(--color-navy) !important;
+  color: #fff !important;
+}
+
+.ctaSection {
+  padding: 80px 0;
+  background: var(--color-navy-dark);
+  color: #fff;
+  text-align: center;
+}
+
+.ctaSection h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.ctaSection p {
+  max-width: 600px;
+  margin: 0 auto 32px;
+  opacity: 0.9;
+  font-size: 1.0625rem;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .storySection {
+    grid-template-columns: 1fr;
+  }
+
+  .storyImage {
+    min-height: 280px;
+  }
+
+  .storyContent {
+    padding: 48px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}

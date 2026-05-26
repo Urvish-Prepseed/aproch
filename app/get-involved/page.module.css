@@ -1,0 +1,53 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.card {
+  padding: 36px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.card h3 {
+  font-size: 1.375rem;
+  margin-bottom: 12px;
+  color: var(--color-navy);
+}
+
+.card p {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.cta {
+  padding: 64px 0;
+  background: var(--color-navy);
+  color: #fff;
+  text-align: center;
+}
+
+.cta h2 {
+  color: #fff;
+  font-size: 1.75rem;
+  margin-bottom: 12px;
+}
+
+.cta p {
+  opacity: 0.9;
+  margin-bottom: 24px;
+}
+
+.cta a {
+  background: #fff !important;
+  color: var(--color-navy) !important;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
