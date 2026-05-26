@@ -1,66 +1,228 @@
+.pageInner {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 96px;
+  box-sizing: border-box;
+}
+
+/* Hero */
+.hero {
+  padding: 128px 0;
+  background: #4a3d54;
+  color: #ffffff;
+}
+
+.heroTitle {
+  max-width: 768px;
+  margin: 0 0 24px;
+  font-family: var(--font-serif);
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 72px;
+  color: #ffffff;
+}
+
+.heroSubtitle {
+  max-width: 768px;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Stats */
 .statsSection {
-  padding: 64px 0;
-  background: var(--color-orange);
+  padding: 80px 0;
+  background: #ffffff;
 }
 
 .statsGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 48px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  color: #fff;
+}
+
+.statIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 24px;
+  border-radius: 50%;
+  color: #ffffff;
+  flex-shrink: 0;
 }
 
 .statValue {
   display: block;
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 12px;
+  font-family: var(--font-sans);
+  font-size: 60px;
   font-weight: 700;
-  margin-bottom: 8px;
+  line-height: 60px;
+  color: #1a1a1a;
 }
 
 .statLabel {
-  font-size: 0.9375rem;
-  opacity: 0.95;
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #5c6b7a;
 }
 
-.stories {
+/* Impact Stories */
+.storiesSection {
+  padding: 80px 0;
+  background: #f8fafc;
+}
+
+.sectionHeading {
+  margin: 0 0 24px;
+  font-family: var(--font-serif);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 48px;
+  color: #1a1a1a;
+}
+
+.sectionSubtitle {
+  max-width: 768px;
+  margin: 0 0 44px;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #5c6b7a;
+}
+
+.storiesGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px;
 }
 
 .storyCard {
   padding: 32px;
-  background: var(--color-bg-muted);
-  border-radius: 8px;
-  border-left: 4px solid var(--color-navy);
+  background: #ffffff;
+  border-radius: 0;
 }
 
-.storyCard h3 {
-  font-size: 1.25rem;
-  margin-bottom: 12px;
-  color: var(--color-navy);
+.storyTitle {
+  margin: 0 0 16px;
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+  color: #1a1a1a;
 }
 
-.storyCard p {
-  color: var(--color-text-muted);
-  line-height: 1.7;
-  margin-bottom: 16px;
+.storyText {
+  margin: 0 0 16px;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 29.25px;
+  color: #5c6b7a;
 }
 
 .storyStat {
-  font-weight: 700;
-  color: var(--color-orange);
-  font-size: 0.9375rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #f27a21;
+}
+
+.storyStat svg {
+  flex-shrink: 0;
+  color: #f27a21;
+}
+
+@media (max-width: 1200px) {
+  .pageInner {
+    padding: 0 48px;
+  }
 }
 
 @media (max-width: 900px) {
-  .statsGrid {
-    grid-template-columns: repeat(2, 1fr);
+  .hero {
+    padding: 96px 0;
   }
 
-  .stories {
+  .heroTitle {
+    font-size: 48px;
+    line-height: 1.1;
+  }
+
+  .heroSubtitle {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+  }
+
+  .statValue {
+    font-size: 48px;
+    line-height: 1.1;
+  }
+
+  .sectionHeading {
+    font-size: 40px;
+    line-height: 1.1;
+  }
+
+  .storiesGrid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .pageInner {
+    padding: 0 24px;
+  }
+
+  .hero {
+    padding: 80px 0;
+  }
+
+  .heroTitle {
+    font-size: 36px;
+  }
+
+  .statsSection,
+  .storiesSection {
+    padding: 64px 0;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .statValue {
+    font-size: 40px;
+  }
+
+  .sectionSubtitle {
+    margin-bottom: 32px;
   }
 }

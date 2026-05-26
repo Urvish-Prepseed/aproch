@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import PageHero from "@/components/PageHero";
 import { initiatives } from "@/lib/initiatives";
 import styles from "./page.module.css";
 
@@ -11,42 +10,49 @@ export const metadata = {
 export default function InitiativesPage() {
   return (
     <>
-      <PageHero
-        title="Our Initiatives"
-        subtitle="Five programs working together to create child-friendly cities"
-      />
+      <section className={styles.hero}>
+        <div className={styles.pageInner}>
+          <h1 className={styles.heroTitle}>Our Initiatives</h1>
+          <p className={styles.heroSubtitle}>
+            Five programs working together to create child-friendly cities
+          </p>
+        </div>
+      </section>
 
-      <section className="section">
-        <div className="container">
+      <section className={styles.listSection}>
+        <div className={styles.pageInner}>
           <div className={styles.list}>
             {initiatives.map((item, index) => (
               <article
                 key={item.slug}
-                className={`${styles.item} ${index % 2 === 1 ? styles.reverse : ""}`}
+                className={`${styles.item} ${index % 2 === 1 ? styles.itemReverse : ""}`}
               >
-                <div className={styles.imageWrap}>
-                  <Image
-                    src={item.heroImage}
-                    alt={item.title}
-                    width={560}
-                    height={380}
-                    style={{ objectFit: "cover", borderRadius: "8px" }}
-                  />
-                </div>
                 <div className={styles.content}>
                   <Image
                     src={item.icon}
                     alt=""
-                    width={56}
-                    height={56}
+                    width={96}
+                    height={96}
                     className={styles.icon}
                   />
-                  <h2>{item.title}</h2>
-                  <p className={styles.tagline}>{item.tagline}</p>
-                  <p className={styles.description}>{item.about}</p>
-                  <Link href={`/initiatives/${item.slug}`} className={styles.link}>
+                  <h2 className={styles.itemTitle}>{item.title}</h2>
+                  <p className={styles.itemText}>{item.listingDescription}</p>
+                  <Link
+                    href={`/initiatives/${item.slug}`}
+                    className={styles.learnMore}
+                  >
                     Learn More
+                    <span aria-hidden="true">→</span>
                   </Link>
+                </div>
+                <div className={styles.imageWrap}>
+                  <Image
+                    src={item.heroImage}
+                    alt={item.title}
+                    width={520}
+                    height={384}
+                    className={styles.photo}
+                  />
                 </div>
               </article>
             ))}
