@@ -1,66 +1,226 @@
-.missionText {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: var(--color-text-muted);
-  max-width: 800px;
+.pageInner {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 96px;
+  box-sizing: border-box;
 }
 
+/* Hero */
+.hero {
+  padding: 128px 0;
+  background: #2e4854;
+  color: #ffffff;
+}
+
+.heroTitle {
+  max-width: 768px;
+  margin: 0 0 24px;
+  font-family: var(--font-serif);
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 72px;
+  color: #ffffff;
+}
+
+.heroSubtitle {
+  max-width: 768px;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Shared section heading */
+.sectionHeading {
+  margin: 0 0 24px;
+  font-family: var(--font-serif);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 48px;
+  color: #1a1a1a;
+}
+
+/* Our Mission */
+.missionSection {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.missionText {
+  max-width: 896px;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32.5px;
+  color: #5c6b7a;
+}
+
+/* Our Values */
 .valuesSection {
   padding: 80px 0;
-  background: var(--color-bg-muted);
+  background: #f8fafc;
+}
+
+.valuesSection .sectionHeading {
+  margin-bottom: 64px;
 }
 
 .valuesGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 48px;
 }
 
 .valueCard {
-  background: #fff;
   padding: 32px;
-  border-radius: 8px;
-  border: 1px solid var(--color-border);
+  background: #ffffff;
+  border-radius: 0;
 }
 
-.valueCard h3 {
-  font-size: 1.25rem;
-  margin-bottom: 12px;
-  color: var(--color-navy);
+.valueIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 24px;
+  border-radius: 50%;
+  color: #ffffff;
 }
 
-.valueCard p {
-  font-size: 0.9375rem;
-  color: var(--color-text-muted);
-  line-height: 1.7;
+.valueTitle {
+  margin: 0 0 16px;
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+  color: #1a1a1a;
 }
 
-.storyLayout {
+.valueText {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 29.25px;
+  color: #5c6b7a;
+}
+
+/* Our Story */
+.storySection {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.storyGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 512px 512px;
   gap: 64px;
   align-items: center;
 }
 
 .storyText {
-  font-size: 1.0625rem;
-  color: var(--color-text-muted);
-  line-height: 1.8;
-  margin-bottom: 16px;
+  margin: 0 0 24px;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32.5px;
+  color: #5c6b7a;
 }
 
-.storyImage img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
+.storyTextLast {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32.5px;
+  color: #5c6b7a;
+}
+
+.storyImage {
+  width: 512px;
+  height: 384px;
+}
+
+.storyImg {
+  width: 512px;
+  height: 384px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+@media (max-width: 1200px) {
+  .pageInner {
+    padding: 0 48px;
+  }
+
+  .storyGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  .storyImage,
+  .storyImg {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 512 / 384;
+  }
 }
 
 @media (max-width: 900px) {
-  .valuesGrid {
-    grid-template-columns: 1fr;
+  .hero {
+    padding: 96px 0;
   }
 
-  .storyLayout {
+  .heroTitle {
+    font-size: 48px;
+    line-height: 1.1;
+  }
+
+  .heroSubtitle {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .sectionHeading {
+    font-size: 40px;
+    line-height: 1.1;
+  }
+
+  .valuesGrid {
     grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .valuesSection .sectionHeading {
+    margin-bottom: 40px;
+  }
+
+  .storyGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .pageInner {
+    padding: 0 24px;
+  }
+
+  .hero {
+    padding: 80px 0;
+  }
+
+  .heroTitle {
+    font-size: 36px;
+  }
+
+  .missionSection,
+  .valuesSection,
+  .storySection {
+    padding: 64px 0;
   }
 }
