@@ -1,6 +1,7 @@
 .footer {
-  background: var(--color-bg-muted);
   margin-top: auto;
+  background: #ffffff;
+  padding-top: 48px;
 }
 
 .grid {
