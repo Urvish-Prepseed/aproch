@@ -53,15 +53,26 @@ export default function Header() {
     setOpenDropdown((prev) => (prev === label ? null : label));
   }
 
+  function openOnHover(label) {
+    if (window.innerWidth > 900) setOpenDropdown(label);
+  }
+
+  function closeOnHoverLeave(e) {
+    if (window.innerWidth <= 900) return;
+    const next = e.relatedTarget;
+    if (next instanceof Node && e.currentTarget.contains(next)) return;
+    setOpenDropdown(null);
+  }
+
   return (
     <header className={styles.header}>
-      <div className={`container ${styles.inner}`}>
+      <div className={styles.inner}>
         <Link href="/" className={styles.logo} onClick={() => setMenuOpen(false)}>
           <Image
             src="/images/aproch-logo.png"
             alt="APROCH — Making our cities Child Friendly"
-            width={190}
-            height={44}
+            width={203}
+            height={40}
             className={styles.logoImg}
             priority
           />
@@ -83,6 +94,7 @@ export default function Header() {
           ref={navRef}
           className={`${styles.nav} ${menuOpen ? styles.navOpen : ""}`}
           aria-label="Main navigation"
+          onMouseLeave={closeOnHoverLeave}
         >
           <ul className={styles.navList}>
             {navItems.map((item) => {
@@ -94,41 +106,69 @@ export default function Header() {
                   <li
                     key={item.label}
                     className={`${styles.dropdown} ${isOpen ? styles.dropdownOpen : ""} ${active ? styles.activeParent : ""}`}
-                    onMouseEnter={() => {
-                      if (window.innerWidth > 900) setOpenDropdown(item.label);
-                    }}
-                    onMouseLeave={() => {
-                      if (window.innerWidth > 900) setOpenDropdown(null);
-                    }}
                   >
-                    <button
-                      type="button"
-                      className={`${styles.navTrigger} ${active ? styles.active : ""}`}
-                      aria-expanded={isOpen}
-                      aria-haspopup="true"
-                      onClick={() => toggleDropdown(item.label)}
+                    <div
+                      className={styles.dropdownPanel}
+                      onMouseEnter={() => openOnHover(item.label)}
+                      onMouseLeave={closeOnHoverLeave}
                     >
-                      {item.label}
-                      <Chevron />
-                    </button>
-                    <ul className={styles.dropdownMenu}>
-                      {item.children.map((child) => (
-                        <li key={child.href}>
+                      <div className={styles.dropdownTrigger}>
+                        {item.href ? (
                           <Link
-                            href={child.href}
-                            className={
-                              pathname === child.href ||
-                              pathname.startsWith(child.href + "/")
-                                ? styles.dropdownActive
-                                : ""
-                            }
-                            onClick={() => setMenuOpen(false)}
+                            href={item.href}
+                            className={`${styles.navLink} ${active ? styles.active : ""}`}
+                            onClick={() => {
+                              setMenuOpen(false);
+                              setOpenDropdown(null);
+                            }}
                           >
-                            {child.label}
+                            {item.label}
                           </Link>
-                        </li>
-                      ))}
-                    </ul>
+                        ) : (
+                          <button
+                            type="button"
+                            className={`${styles.navTrigger} ${active ? styles.active : ""}`}
+                            onClick={() => toggleDropdown(item.label)}
+                          >
+                            {item.label}
+                          </button>
+                        )}
+                        <button
+                          type="button"
+                          className={styles.dropdownToggle}
+                          aria-expanded={isOpen}
+                          aria-haspopup="true"
+                          aria-label={`${item.label} menu`}
+                          onClick={() => toggleDropdown(item.label)}
+                        >
+                          <Chevron />
+                        </button>
+                      </div>
+                      {isOpen && (
+                        <span className={styles.dropdownBridge} aria-hidden="true" />
+                      )}
+                      <ul className={styles.dropdownMenu}>
+                        {item.children.map((child) => (
+                          <li key={child.href}>
+                            <Link
+                              href={child.href}
+                              className={
+                                pathname === child.href ||
+                                pathname.startsWith(child.href + "/")
+                                  ? styles.dropdownActive
+                                  : ""
+                              }
+                              onClick={() => {
+                                setMenuOpen(false);
+                                setOpenDropdown(null);
+                              }}
+                            >
+                              {child.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </li>
                 );
               }

@@ -36,53 +36,61 @@ export default function HomePage() {
       <section className={`section ${styles.intro}`}>
         <div className="container">
           <p className={styles.introText}>
-            APROCH (A Protagonist in Every Child) transforms cities into
-            playgrounds of possibility. Through our five flagship initiatives,
-            we empower children to explore, learn, and shape their urban
-            environments. From cycling workshops to park activations, we&apos;re
-            building communities where every child can thrive.
+            APROCH (A Protagonist in Every Child) transforms cities into playgrounds of possibility. Through our five flagship initiatives, we empower children to explore, learn, and shape their urban environments. From cycling workshops to park activations, we&apos;re building communities where every child can thrive.
           </p>
         </div>
       </section>
 
       <section className={`section ${styles.initiatives}`}>
         <div className="container">
-          <h2 className="sectionTitle">Our Initiatives</h2>
-          <p className="sectionSubtitle">
-            Five programs creating child-friendly cities
-          </p>
-          <div className={styles.initiativeGrid}>
+          <div className={styles.initiativesContent}>
+            <div className={styles.initiativesHeader}>
+              <h2 className="sectionTitle">Our Initiatives</h2>
+              <p className="sectionSubtitle">
+                Five programs creating child-friendly cities
+              </p>
+            </div>
+            <div className={styles.initiativeGrid}>
             {initiatives.map((item) => (
               <Link
                 key={item.slug}
                 href={`/initiatives/${item.slug}`}
                 className={styles.initiativeCard}
               >
-                <div className={styles.initiativeIcon}>
-                  <Image
-                    src={item.icon}
-                    alt=""
-                    width={80}
-                    height={80}
-                  />
+                <div className={styles.initiativeCardTop}>
+                  <div className={styles.initiativeIcon}>
+                    <Image
+                      src={item.icon}
+                      alt=""
+                      width={96}
+                      height={96}
+                    />
+                  </div>
+                  <h3>{item.title}</h3>
+                  <p>{item.tagline}</p>
                 </div>
-                <h3>{item.title}</h3>
-                <p>{item.tagline}</p>
-                <span className={styles.learnMore}>Learn More</span>
+                <span className={styles.learnMore}>
+                  Learn More
+                  <span aria-hidden="true">→</span>
+                </span>
               </Link>
             ))}
+            </div>
           </div>
         </div>
       </section>
 
       <section className={styles.impactBand}>
-        <div className="container">
-          <h2 className={styles.impactTitle}>Our Impact</h2>
-          <p className={styles.impactSubtitle}>
-            Through our programs, we&apos;ve reached thousands of children across
-            15 cities, transforming urban spaces into inclusive environments
-            where every child can play, learn, and grow.
-          </p>
+        <div className={styles.impactContainer}>
+          <div className={styles.impactLayout}>
+          <div className={styles.impactCopy}>
+            <h2 className={styles.impactTitle}>Our Impact</h2>
+            <p className={styles.impactSubtitle}>
+              Through our programs, we&apos;ve reached thousands of children
+              across 15 cities, transforming urban spaces into inclusive
+              environments where every child can play, learn, and grow.
+            </p>
+          </div>
           <div className={styles.statsGrid}>
             {stats.map((stat) => (
               <div key={stat.label} className={styles.stat}>
@@ -91,45 +99,54 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+          </div>
         </div>
       </section>
 
       <section className={styles.storySection}>
-        <div className={styles.storyImage}>
+        <div className={styles.storyBg} aria-hidden="true">
           <Image
             src={images.story}
-            alt="Children exploring their city"
+            alt=""
             fill
-            sizes="50vw"
+            sizes="100vw"
+            className={styles.storyBgImage}
           />
         </div>
-        <div className={styles.storyContent}>
-          <h2>Every child deserves a city that works for them</h2>
-          <p>
-            We work with communities, municipalities, and families to create
-            urban environments where children feel safe, empowered, and
-            inspired.
-          </p>
-          <Button href="/about" variant="secondary">
-            OUR STORY
-          </Button>
+        <div className={styles.storyOverlay} aria-hidden="true" />
+        <div className={styles.storyInner}>
+          <div className={styles.storyCopy}>
+            <h2 className={styles.storyTitle}>
+              Every child deserves a city that works for them
+            </h2>
+            <p className={styles.storyText}>
+              We work with communities, municipalities, and families to create
+              urban environments where children feel safe, empowered, and
+              inspired.
+            </p>
+            <Link href="/about" className={styles.storyBtn}>
+              OUR STORY <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </section>
 
       <section className={styles.ctaSection}>
-        <div className="container">
-          <h2>Join our Cause! Everyone can help.</h2>
-          <p>
+        <div className={styles.ctaInner}>
+          <h2 className={styles.ctaTitle}>
+            Join our Cause! Everyone can help.
+          </h2>
+          <p className={styles.ctaText}>
             Your support enables us to create more programs, reach more
             children, and transform more cities into child-friendly spaces.
           </p>
           <div className={styles.ctaButtons}>
-            <Button href="/get-involved" variant="primary">
+            <Link href="/get-involved" className={styles.ctaBtnDonate}>
               DONATE NOW
-            </Button>
-            <Button href="/get-involved" variant="outlineLight">
+            </Link>
+            <Link href="/get-involved" className={styles.ctaBtnVolunteer}>
               BECOME A VOLUNTEER
-            </Button>
+            </Link>
           </div>
         </div>
       </section>
