@@ -1,11 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
-import { newsArticles } from "@/lib/data";
+import { getPublicNewsList } from "@/lib/newsServer";
 import styles from "./page.module.css";
 
 export const metadata = {
   title: "News",
 };
+
+export const dynamic = "force-dynamic";
+
+const EXCERPT_MAX_WORDS = 18;
+
+function truncateExcerpt(text, maxWords = EXCERPT_MAX_WORDS) {
+  if (!text) return "";
+  const words = String(text).trim().split(/\s+/).filter(Boolean);
+  if (words.length <= maxWords) return words.join(" ");
+  return `${words.slice(0, maxWords).join(" ")}...`;
+}
 
 function CalendarIcon() {
   return (
@@ -28,7 +39,8 @@ function CalendarIcon() {
   );
 }
 
-export default function NewsPage() {
+export default async function NewsPage() {
+  const items = await getPublicNewsList();
   return (
     <>
       <section className={styles.hero}>
@@ -43,7 +55,12 @@ export default function NewsPage() {
       <section className={styles.mainSection}>
         <div className={styles.pageInner}>
           <div className={styles.list}>
-            {newsArticles.map((article) => (
+            {items.length === 0 ? (
+              <p style={{ fontFamily: "var(--font-sans)", color: "#5c6b7a" }}>
+                No news yet.
+              </p>
+            ) : (
+              items.map((article) => (
               <Link
                 key={article.id}
                 href={`/news/${article.id}`}
@@ -60,19 +77,29 @@ export default function NewsPage() {
                   />
                 </div>
                 <div className={styles.content}>
-                  <span className={styles.category}>{article.category}</span>
+                  <span className={styles.category}>{article.tag}</span>
                   <h2 className={styles.cardTitle}>{article.title}</h2>
-                  <p className={styles.excerpt}>{article.excerpt}</p>
+                  {article.description ? (
+                    <p className={styles.excerpt}>
+                      {truncateExcerpt(article.description)}
+                    </p>
+                  ) : null}
                   <div className={styles.meta}>
                     <span className={styles.date}>
                       <CalendarIcon />
-                      <time dateTime={article.date}>{article.date}</time>
+                      <time dateTime={article.dateTime || undefined}>
+                        {article.dateLabel || ""}
+                      </time>
                     </span>
-                    <span className={styles.readMore}>Read More</span>
+                    <span className={styles.readMore}>
+                      Read More
+                      <span aria-hidden="true">→</span>
+                    </span>
                   </div>
                 </div>
               </Link>
-            ))}
+              ))
+            )}
           </div>
         </div>
       </section>
