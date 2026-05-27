@@ -1,11 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/Button";
+import HomeEventsCarousel from "@/components/home/HomeEventsCarousel";
 import { stats, images } from "@/lib/data";
+import { getPublicEventsList } from "@/lib/eventsServer";
 import { initiatives } from "@/lib/initiatives";
 import styles from "./page.module.css";
 
-export default function HomePage() {
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  let events = [];
+  try {
+    events = await getPublicEventsList();
+  } catch {
+    events = [];
+  }
+
   return (
     <>
       <section className={styles.hero}>
@@ -40,6 +51,8 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+
+      <HomeEventsCarousel events={events} />
 
       <section className={`section ${styles.initiatives}`}>
         <div className="container">
