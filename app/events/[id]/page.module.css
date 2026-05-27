@@ -1,0 +1,426 @@
+.pageInner {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 96px;
+  box-sizing: border-box;
+}
+
+.page {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #1a1a1a;
+  transition: gap 0.2s;
+}
+
+.back:hover {
+  gap: 12px;
+}
+
+.header {
+  margin-bottom: 32px;
+}
+
+.typeBadge {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 4px 12px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #1a1a1a;
+  text-transform: lowercase;
+}
+
+.title {
+  margin: 0 0 24px;
+  font-family: var(--font-serif);
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 72px;
+  color: #1a1a1a;
+}
+
+.subtitle {
+  margin: 0 0 24px;
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  color: #4b5563;
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #1a1a1a;
+}
+
+.meta svg {
+  flex-shrink: 0;
+  color: #1a1a1a;
+}
+
+/* Same 2-column grid + stretch as initiatives detail page */
+.contentGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: stretch;
+}
+
+.mainCol {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  min-width: 0;
+}
+
+.heroImage {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.heroImg {
+  width: 100%;
+  height: 384px;
+  object-fit: cover;
+  display: block;
+}
+
+.block {
+  min-width: 0;
+}
+
+.sectionTitle {
+  margin: 0 0 16px;
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+  color: #1a1a1a;
+}
+
+.subTitle {
+  margin: 0 0 16px;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: #1a1a1a;
+}
+
+.bodyText {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 29.25px;
+  color: #374151;
+}
+
+.activityList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+}
+
+.activityRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.activityBullet {
+  width: 8px;
+  height: 8px;
+  margin-top: 10px;
+  flex-shrink: 0;
+  background: #1f2937;
+}
+
+.activityItem {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  color: #374151;
+}
+
+/* Sidebar — identical sticky pattern to /initiatives/[slug] */
+.sidebar {
+  min-width: 0;
+}
+
+.sidebarSticky {
+  position: sticky;
+  top: calc(var(--header-height) + 24px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  z-index: 2;
+}
+
+.detailsCard {
+  padding: 32px;
+  background: #f9fafb;
+  border-radius: 16px;
+}
+
+.registerCard {
+  padding: 32px;
+  border-radius: 16px;
+}
+
+.sidebarTitle {
+  margin: 0 0 24px;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: #1a1a1a;
+}
+
+.registerCard .sidebarTitle {
+  margin-bottom: 12px;
+}
+
+.detailsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detailItem {
+  margin: 0;
+}
+
+.detailLabel {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #6b7280;
+}
+
+.detailValue {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #374151;
+}
+
+.detailValue svg {
+  flex-shrink: 0;
+  color: #374151;
+}
+
+.registerText {
+  margin: 0 0 24px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 24px;
+  color: #4b5563;
+}
+
+.registerBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 28px;
+  padding: 8px 16px;
+  background: #111827;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #ffffff;
+  transition: background 0.2s;
+}
+
+.registerBtn:hover {
+  background: #1f2937;
+}
+
+/* Bottom row: Part of … | Questions? */
+.bottomRow {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 48px;
+  margin-top: 48px;
+  align-items: stretch;
+}
+
+.initiativeBlock {
+  height: 100%;
+  padding: 32px;
+  background: #f9fafb;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.initiativeBlock .bodyText {
+  margin-bottom: 24px;
+}
+
+.outlineBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  padding: 8px 16px;
+  border: 2px solid #1a1a1a;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  transition: background 0.2s, color 0.2s;
+}
+
+.outlineBtn:hover {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+.questionsCard {
+  height: 100%;
+  padding: 32px;
+  background: #f9fafb;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.questionsTitle {
+  margin: 0 0 12px;
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #1a1a1a;
+}
+
+.questionsText {
+  margin: 0 0 24px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 24px;
+  color: #4b5563;
+}
+
+.contactBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: auto;
+  min-height: 28px;
+  padding: 8px 16px;
+  border: 2px solid #1a1a1a;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  transition: background 0.2s, color 0.2s;
+}
+
+.contactBtn:hover {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+@media (max-width: 1200px) {
+  .pageInner {
+    padding: 0 48px;
+  }
+
+  .contentGrid,
+  .bottomRow {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebarSticky {
+    position: static;
+  }
+}
+
+@media (max-width: 900px) {
+  .title {
+    font-size: 48px;
+    line-height: 1.1;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 64px 0;
+  }
+
+  .pageInner {
+    padding: 0 24px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .heroImg {
+    height: 240px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .bodyText,
+  .activityItem {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}

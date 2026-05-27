@@ -5,6 +5,8 @@ const nextConfig = {
       { protocol: "https", hostname: "images.unsplash.com" },
       { protocol: "https", hostname: "aproch.org" },
       { protocol: "https", hostname: "jolt-edit-44752845.figma.site" },
+      { protocol: "https", hostname: "prepseed-files.prepseed.com" },
+      { protocol: "https", hostname: "prepseed.s3.ap-south-1.amazonaws.com" },
     ],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512, 640, 750],
     qualities: [75, 90],

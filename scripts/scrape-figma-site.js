@@ -9,6 +9,7 @@ const ROUTES = [
   "/initiatives",
   "/impact",
   "/events",
+  "/events/1",
   "/news",
   "/resources",
   "/get-involved",

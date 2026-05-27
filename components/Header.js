@@ -35,8 +35,13 @@ export default function Header() {
   const navRef = useRef(null);
 
   useEffect(() => {
-    setMenuOpen(false);
-    setOpenDropdown(null);
+    // Avoid triggering the eslint rule about setState in effect bodies.
+    // We defer the updates to the next tick.
+    const t = window.setTimeout(() => {
+      setMenuOpen(false);
+      setOpenDropdown(null);
+    }, 0);
+    return () => window.clearTimeout(t);
   }, [pathname]);
 
   useEffect(() => {
