@@ -57,9 +57,11 @@ jobs:
             npm ci --omit=dev
 
             # Run the standalone server (Next.js output: 'standalone')
-            cd .next/standalone
+            # IMPORTANT: Keep cwd at project root so assets resolve:
+            # - .next/static (CSS/JS chunks)
+            # - public/*
             pm2 delete nextjs-app2 2>/dev/null || true
-            HOSTNAME=0.0.0.0 PORT=3001 pm2 start node --name "nextjs-app2" -- server.js
+            HOSTNAME=0.0.0.0 PORT=3001 pm2 start node --name "nextjs-app2" -- .next/standalone/server.js
             pm2 save
           EOF
 
