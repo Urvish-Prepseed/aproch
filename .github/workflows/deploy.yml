@@ -23,7 +23,7 @@ jobs:
 
       - name: Build Next.js
         env:
-          APP_ENV: ${{ secrets.APP2_APP_ENV }}
+          APP_ENV: ${{ secrets.APP_ENV }}
         run: |
           printf '%s' "$APP_ENV" > .env.production
           export NODE_ENV=production
@@ -51,7 +51,7 @@ jobs:
           ssh -i ~/.ssh/ec2.pem ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
             cd /var/www/nextjs-app2
 
-            echo "${{ secrets.APP2_APP_ENV }}" > .env
+            echo "${{ secrets.APP_ENV }}" > .env
 
             # Install production dependencies on the EC2 instance
             npm ci --omit=dev
